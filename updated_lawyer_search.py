@@ -18,7 +18,7 @@ def add_to_db(name, address, phone, website):
     conn = psycopg2.connect("dbname={} user={} host={}".format("lawyer_db", "postgres", "localhost"))
     c = conn.cursor()
 
-    c.execute("INSERT INTO lawyers (name, address, phone, website) VALUES ('{}','{}','{}','{}')".format(name, address, phone, website))
+    c.execute("INSERT INTO {} (name, address, phone, website) VALUES ('{}','{}','{}','{}')".format("lawyers", name, address, phone, website))
     conn.commit()
 
     c.close()
